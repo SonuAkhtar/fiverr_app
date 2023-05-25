@@ -60,3 +60,62 @@ export const cards = [
     image: "https://ychef.files.bbci.co.uk/1280x720/p0ff8hmx.jpg",
   },
 ];
+
+export const projects = [
+  {
+    id: "1",
+    image: "/images/mobile.jpg",
+    pp: "/images/mobile.jpg",
+    cat: "gig1",
+    username: "John cena",
+  },
+  {
+    id: "2",
+    image: "/images/mobile.jpg",
+    pp: "/images/mobile.jpg",
+    cat: "gig1",
+    username: "John cena",
+  },
+  {
+    id: "3",
+    image: "/images/mobile.jpg",
+    pp: "/images/mobile.jpg",
+    cat: "gig1",
+    username: "John cena",
+  },
+  {
+    id: "4",
+    image: "/images/mobile.jpg",
+    pp: "/images/mobile.jpg",
+    cat: "gig1",
+    username: "John cena",
+  },
+  {
+    id: "5",
+    image: "/images/mobile.jpg",
+    pp: "/images/mobile.jpg",
+    cat: "gig1",
+    username: "John cena",
+  },
+  {
+    id: "6",
+    image: "/images/mobile.jpg",
+    pp: "/images/mobile.jpg",
+    cat: "gig1",
+    username: "John cena",
+  },
+  {
+    id: "7",
+    image: "/images/mobile.jpg",
+    pp: "/images/mobile.jpg",
+    cat: "gig1",
+    username: "John cena",
+  },
+  {
+    id: "8",
+    image: "/images/mobile.jpg",
+    pp: "/images/mobile.jpg",
+    cat: "gig1",
+    username: "John cena",
+  },
+];
