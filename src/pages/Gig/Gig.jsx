@@ -17,6 +17,8 @@ const Gig = () => {
       }),
   });
 
+  const userID = data?.userId;
+
   const {
     isLoading: isLoadingUser,
     error: errorUser,
@@ -24,9 +26,11 @@ const Gig = () => {
   } = useQuery({
     queryKey: ["user"],
     queryFn: () =>
-      newRequest.get(`/users/${data.userId}`).then((res) => {
+      newRequest.get(`/users/${userID}`).then((res) => {
         return res.data;
       }),
+
+    enabled: !!userID,
   });
 
   return (
