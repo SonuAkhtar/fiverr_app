@@ -14,7 +14,7 @@ const GigCard = ({ item }) => {
   });
 
   return (
-    <Link to="/gig/123" className="link">
+    <Link to={`/gig/${item._id}`} className="link">
       <div className="gigCard">
         <img src={item.coverImage} alt="Coverimage" />
         <div className="info">
@@ -30,7 +30,11 @@ const GigCard = ({ item }) => {
           )}
           <p>{item.desc}</p>
           <div className="star">
-            <img src="./images/star.png" alt="star" />
+            {Array(Math.round(item.totalStars / item.starNumber))
+              .fill()
+              .map((img, i) => (
+                <img key={i} src="/images/star.png" alt="star" />
+              ))}
             <span>
               {!isNaN(item.totalStars / item.starNumber) &&
                 Math.round(item.totalStars / item.starNumber)}
