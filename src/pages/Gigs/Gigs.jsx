@@ -11,21 +11,32 @@ const Gigs = () => {
   const minRef = useRef();
   const maxRef = useRef();
 
-  const { isLoading, error, data } = useQuery({
-    queryKey: "",
-    queryFn: () => {
-      newRequest.get("/gigs").then((res) => {
-        return res.data;
-      });
-    },
+  const { search } = useLocation();
+
+  const { isLoading, error, data, refetch } = useQuery({
+    queryKey: ["gigs"],
+    queryFn: () =>
+      newRequest
+        .get(
+          `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`
+        )
+        .then((res) => {
+          return res.data;
+        }),
   });
+
+  console.log(data);
 
   const reSort = (type) => {
     setSort(type);
     setOpen(false);
   };
 
-  const apply = () => {
+  useEffect(() => {
+    refetch();
+  }, [sort]);
+
+  const budgetApply = () => {
     refetch();
   };
 
@@ -42,7 +53,7 @@ const Gigs = () => {
             <span>Budget</span>
             <input ref={minRef} type="text" placeholder="min" />
             <input ref={maxRef} type="text" placeholder="max" />
-            <button onClick={apply}>Apply</button>
+            <button onClick={budgetApply}>Apply</button>
           </div>
           <div className="right">
             <span className="sortBy">SortBy: </span>
@@ -70,7 +81,7 @@ const Gigs = () => {
             ? "Loading"
             : error
             ? "Something went wrong"
-            : data.map((gig) => <GigCard key={gig.id} item={gig} />)}
+            : data.map((gig) => <GigCard key={gig._id} item={gig} />)}
         </div>
       </div>
     </div>
