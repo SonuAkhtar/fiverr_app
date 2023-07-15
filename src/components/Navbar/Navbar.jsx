@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import newRequest from "../../utils/newRequest";
 import "./navbar.scss";
-import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.addEventListener("scroll", isActive);
 
@@ -18,10 +21,16 @@ const Navbar = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
   };
 
-  const currentUser = {
-    id: 1,
-    userName: "sonu A",
-    isSeller: true,
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const handleLogout = async () => {
+    try {
+      await newRequest.post("auth/logout");
+      localStorage.removeItem("currentUser");
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -37,15 +46,14 @@ const Navbar = () => {
           <span>Business</span>
           <span>Explore</span>
           <span>English</span>
-          <span>Sign in</span>
           {!currentUser?.isSeller && <span>Become a Seller</span>}
-          {currentUser && (
+          {currentUser ? (
             <div className="user" onClick={() => setMenuOpen(!menuOpen)}>
               <img
-                src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQijI6Sf7U-nKAfhHFmFBhVVVIxOfzI3QBeHqEjXJ7qcqbu98eqykx0UdmHrvt9Wx5hKilfZROD0mR85gk"
+                src={currentUser.img || "/images/noavatar.jpg"}
                 alt="user-image"
               />
-              <span>{currentUser?.userName}</span>
+              <span>{currentUser?.username}</span>
               {menuOpen && (
                 <div className="options">
                   {currentUser?.isSeller && (
@@ -64,48 +72,56 @@ const Navbar = () => {
                   <Link className="link" to="/messages">
                     Messages
                   </Link>
-                  <Link className="link" to="/">
+                  <Link className="link" onClick={handleLogout}>
                     Logout
                   </Link>
                 </div>
               )}
             </div>
+          ) : (
+            <>
+              <Link to="/login" className="link">
+                Sign in
+              </Link>
+              <Link to="/register" className="link">
+                <button>Join</button>
+              </Link>
+            </>
           )}
         </div>
       </div>
-      {active ||
-        (pathname !== "/" && (
-          <>
-            <hr />
-            <div className="menu">
-              <Link className="link" to="/">
-                Graphics & Design
-              </Link>
-              <Link className="link" to="/">
-                Video & Animation
-              </Link>
-              <Link className="link" to="/">
-                AI Services
-              </Link>
-              <Link className="link" to="/">
-                Digital Marketing
-              </Link>
-              <Link className="link" to="/">
-                Music & Audio
-              </Link>
-              <Link className="link" to="/">
-                Programming & Tech
-              </Link>
-              <Link className="link" to="/">
-                Business
-              </Link>
-              <Link className="link" to="/">
-                Lifestyle
-              </Link>
-            </div>
-            <hr />
-          </>
-        ))}
+      {(active || pathname !== "/") && (
+        <>
+          <hr />
+          <div className="menu">
+            <Link className="link" to="/">
+              Graphics & Design
+            </Link>
+            <Link className="link" to="/">
+              Video & Animation
+            </Link>
+            <Link className="link" to="/">
+              AI Services
+            </Link>
+            <Link className="link" to="/">
+              Digital Marketing
+            </Link>
+            <Link className="link" to="/">
+              Music & Audio
+            </Link>
+            <Link className="link" to="/">
+              Programming & Tech
+            </Link>
+            <Link className="link" to="/">
+              Business
+            </Link>
+            <Link className="link" to="/">
+              Lifestyle
+            </Link>
+          </div>
+          <hr />
+        </>
+      )}
     </div>
   );
 };
