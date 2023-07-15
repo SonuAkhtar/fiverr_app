@@ -14,11 +14,11 @@ const Gig = () => {
             <img src="/images/mobile.jpg" alt="user" className="profile" />
             <span>John Cena</span>
             <div className="stars">
-              <img src="/images/star.png" alt="start" />
-              <img src="/images/star.png" alt="start" />
-              <img src="/images/star.png" alt="start" />
-              <img src="/images/star.png" alt="start" />
-              <img src="/images/star.png" alt="start" />
+              <img src="/images/star.png" alt="star" />
+              <img src="/images/star.png" alt="star" />
+              <img src="/images/star.png" alt="star" />
+              <img src="/images/star.png" alt="star" />
+              <img src="/images/star.png" alt="star" />
               <span>5</span>
             </div>
           </div>
@@ -46,11 +46,11 @@ const Gig = () => {
               <div className="info">
                 <span>John Cena</span>
                 <div className="stars">
-                  <img src="/images/star.png" alt="start" />
-                  <img src="/images/star.png" alt="start" />
-                  <img src="/images/star.png" alt="start" />
-                  <img src="/images/star.png" alt="start" />
-                  <img src="/images/star.png" alt="start" />
+                  <img src="/images/star.png" alt="star" />
+                  <img src="/images/star.png" alt="star" />
+                  <img src="/images/star.png" alt="star" />
+                  <img src="/images/star.png" alt="star" />
+                  <img src="/images/star.png" alt="star" />
                   <span>5</span>
                 </div>
                 <button>Contact Me</button>
@@ -97,17 +97,17 @@ const Gig = () => {
                 <div className="info">
                   <span>John Cena</span>
                   <div className="country">
-                    <img src="/images/star.png" alt="start" />
+                    <img src="/images/star.png" alt="star" />
                     <span>USA</span>
                   </div>
                 </div>
               </div>
               <div className="stars">
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
                 <span>5</span>
               </div>
               <p>
@@ -132,17 +132,17 @@ const Gig = () => {
                 <div className="info">
                   <span>John Cena</span>
                   <div className="country">
-                    <img src="/images/star.png" alt="start" />
+                    <img src="/images/star.png" alt="star" />
                     <span>USA</span>
                   </div>
                 </div>
               </div>
               <div className="stars">
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
                 <span>5</span>
               </div>
               <p>
@@ -167,17 +167,17 @@ const Gig = () => {
                 <div className="info">
                   <span>John Cena</span>
                   <div className="country">
-                    <img src="/images/star.png" alt="start" />
+                    <img src="/images/star.png" alt="star" />
                     <span>USA</span>
                   </div>
                 </div>
               </div>
               <div className="stars">
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
-                <img src="/images/star.png" alt="start" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
+                <img src="/images/star.png" alt="star" />
                 <span>5</span>
               </div>
               <p>

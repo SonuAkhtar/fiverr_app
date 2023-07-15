@@ -127,7 +127,7 @@ export const gigs = [
     pp: "/images/mobile.jpg",
     desc: "gig desc",
     price: 112,
-    start: 5,
+    star: 5,
     username: "john cena",
   },
   {
@@ -136,7 +136,7 @@ export const gigs = [
     pp: "/images/mobile.jpg",
     desc: "gig desc",
     price: 112,
-    start: 5,
+    star: 5,
     username: "john cena",
   },
   {
@@ -145,7 +145,7 @@ export const gigs = [
     pp: "/images/mobile.jpg",
     desc: "gig desc",
     price: 112,
-    start: 5,
+    star: 5,
     username: "john cena",
   },
   {
@@ -154,7 +154,7 @@ export const gigs = [
     pp: "/images/mobile.jpg",
     desc: "gig desc",
     price: 112,
-    start: 5,
+    star: 5,
     username: "john cena",
   },
   {
@@ -163,7 +163,7 @@ export const gigs = [
     pp: "/images/mobile.jpg",
     desc: "gig desc",
     price: 112,
-    start: 5,
+    star: 5,
     username: "john cena",
   },
   {
@@ -172,7 +172,7 @@ export const gigs = [
     pp: "/images/mobile.jpg",
     desc: "gig desc",
     price: 112,
-    start: 5,
+    star: 5,
     username: "john cena",
   },
   {
@@ -181,7 +181,7 @@ export const gigs = [
     pp: "/images/mobile.jpg",
     desc: "gig desc",
     price: 112,
-    start: 5,
+    star: 5,
     username: "john cena",
   },
   {
@@ -190,7 +190,7 @@ export const gigs = [
     pp: "/images/mobile.jpg",
     desc: "gig desc",
     price: 112,
-    start: 5,
+    star: 5,
     username: "john cena",
   },
 ];
