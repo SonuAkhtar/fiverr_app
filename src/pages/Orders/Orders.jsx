@@ -1,84 +1,61 @@
 import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import newRequest from "../../utils/newRequest";
 import "./orders.scss";
 
 const Orders = () => {
-  const currentUser = {
-    id: 1,
-    username: "sonuA",
-    isSeller: true,
-  };
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["orders"],
+    queryFn: () =>
+      newRequest.get(`/orders`).then((res) => {
+        return res.data;
+      }),
+  });
 
   return (
     <div className="orders">
-      <div className="container">
-        <div className="title">
-          <h1>Orders</h1>
+      {isLoading ? (
+        "Loading"
+      ) : error ? (
+        "Something went wrong"
+      ) : (
+        <div className="container">
+          <div className="title">
+            <h1>Orders</h1>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Contact</th>
+              </tr>
+            </thead>
+            {console.log(data)}
+            <tbody>
+              {data.map((order) => (
+                <tr key={order._id}>
+                  <td>
+                    <img className="img" src={order.image} alt="img" />
+                  </td>
+                  <td>{order.title}</td>
+                  <td>{order.price}</td>
+                  <td>
+                    <img
+                      className="delete"
+                      src="/images/message.png"
+                      alt="message"
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <table>
-          <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>{currentUser?.isSeller ? "Buyer" : "Seller"}</th>
-            <th>Contact</th>
-          </tr>
-          <tr>
-            <td>
-              <img className="img" src="/images/delete.png" alt="img" />
-            </td>
-            <td>Gig1</td>
-            <td>55</td>
-            <td>12</td>
-            <td>
-              <img className="delete" src="/images/message.png" alt="delete" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img className="img" src="/images/delete.png" alt="img" />
-            </td>
-            <td>Gig1</td>
-            <td>55</td>
-            <td>12</td>
-            <td>
-              <img className="delete" src="/images/message.png" alt="delete" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img className="img" src="/images/delete.png" alt="img" />
-            </td>
-            <td>Gig1</td>
-            <td>55</td>
-            <td>12</td>
-            <td>
-              <img className="delete" src="/images/message.png" alt="delete" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img className="img" src="/images/delete.png" alt="img" />
-            </td>
-            <td>Gig1</td>
-            <td>55</td>
-            <td>12</td>
-            <td>
-              <img className="delete" src="/images/message.png" alt="delete" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img className="img" src="/images/delete.png" alt="img" />
-            </td>
-            <td>Gig1</td>
-            <td>55</td>
-            <td>12</td>
-            <td>
-              <img className="delete" src="/images/message.png" alt="delete" />
-            </td>
-          </tr>
-        </table>
-      </div>
+      )}
     </div>
   );
 };
