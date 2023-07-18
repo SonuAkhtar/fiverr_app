@@ -27,7 +27,7 @@ const Messages = () => {
   });
 
   const handleMsgRead = (id) => {
-    mutation(id);
+    mutation.mutate(id);
   };
 
   return (
@@ -56,7 +56,9 @@ const Messages = () => {
                   key={conv.id}
                   className={
                     (currentUser.isSeller && !conv.readBySeller) ||
-                    (!currentUser.isSeller && !conv.readByBuyer && "active")
+                    (!currentUser.isSeller && !conv.readByBuyer)
+                      ? "active"
+                      : ""
                   }
                 >
                   <td>{currentUser.isSeller ? conv.buyerId : conv.sellerId}</td>
@@ -67,12 +69,12 @@ const Messages = () => {
                   </td>
                   <td>{moment(conv.updatedAt).fromNow()}</td>
                   <td>
-                    {(currentUser.isSeller && !conv.readBySeller) ||
-                      (!currentUser.isSeller && !conv.readByBuyer && (
-                        <button onClick={() => handleMsgRead(conv.id)}>
-                          Mark as read
-                        </button>
-                      ))}
+                    {((currentUser.isSeller && !conv.readBySeller) ||
+                      (!currentUser.isSeller && !conv.readByBuyer)) && (
+                      <button onClick={() => handleMsgRead(conv.id)}>
+                        Mark as read
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
