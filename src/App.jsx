@@ -18,6 +18,8 @@ import Register from "./pages/Register/Register";
 //Components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import Success from "./pages/Success/Success";
+import Pay from "./pages/Pay/Pay";
 
 function App() {
   const queryClient = new QueryClient();
@@ -77,6 +79,14 @@ function App() {
         {
           path: "/register",
           element: <Register />,
+        },
+        {
+          path: "/success",
+          element: <Success />,
+        },
+        {
+          path: "/pay/:id",
+          element: <Pay />,
         },
       ],
     },
