@@ -8,7 +8,7 @@ const upload = async (file) => {
   data.append("cloud_name", "dxfsta1qc");
 
   try {
-    const res = axios.post(
+    const res = await axios.post(
       "https://api.cloudinary.com/v1_1/dxfsta1qc/image/upload",
       data
     );
