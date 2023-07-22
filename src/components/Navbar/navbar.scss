@@ -2,26 +2,17 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #013914;
-  color: #fff;
+  color: #000;
+  background-color: #fff;
   transition: 0.5s ease all;
   position: sticky;
   top: 0;
   z-index: 999;
   transition: all 0.5s ease;
-
-  &.active {
-    background-color: #fff;
-    color: #000;
-
-    button {
-      background-color: #fff;
-      color: #1dbf73;
-      border: 1px solid #1dbf37;
-    }
-  }
+  overflow: hidden;
 
   main {
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding: 1.25rem 0;
@@ -30,6 +21,7 @@
       position: relative;
       font-size: 1.8rem;
       font-weight: 300;
+      z-index: 999;
 
       .t {
         position: relative;
@@ -43,7 +35,7 @@
         height: 5px;
         width: 5px;
         border-radius: 50%;
-        background-color: #66fcf1;
+        background-color: var(--main-green);
         transition: all 0.5s ease-in-out;
       }
 
@@ -78,10 +70,36 @@
       gap: 1.5rem;
       font-weight: 300;
       font-family: "Montserrat", sans-serif;
+      transition: all 0.5s ease-in-out;
       cursor: pointer;
 
-      span {
+      .link {
+        position: relative;
         white-space: nowrap;
+
+        &::before {
+          position: absolute;
+          bottom: -0.25rem;
+          left: 0;
+          content: "";
+          height: 2px;
+          width: 0;
+          border-radius: 1rem;
+          background-color: var(--main-green);
+          transition: all 0.3s ease-in-out;
+        }
+
+        &:hover,
+        &.active {
+          &::before {
+            width: 100%;
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          font-weight: 600;
+          font-size: 1.5rem;
+        }
       }
 
       .user {
@@ -134,7 +152,7 @@
           height: 2px;
           width: 0;
           border-radius: 50%;
-          background-color: #66fcf1;
+          background-color: var(--main-green);
           transition: all 0.3s ease;
         }
 
@@ -143,19 +161,74 @@
         }
       }
 
-      button {
-        background-color: transparent;
-        color: #fff;
-        padding: 0.75rem 1.25rem;
-        border-radius: 0.5rem;
-        border: 1px solid #fff;
-        cursor: pointer;
-        transition: all ease 0.3s;
+      @media screen and (max-width: 768px) {
+        background-color: var(--main-white);
+        position: absolute;
+        top: 0;
+        left: -2rem;
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3rem;
+        outline: 1px solid var(--main-green);
+        transform: translateX(100vh);
 
-        &:hover {
-          background-color: #1dbf37;
-          border-color: #1dbf37;
+        &.show {
+          transform: translateX(0);
         }
+      }
+    }
+
+    button {
+      border: 1px solid var(--main-green);
+      font-weight: 500;
+
+      &:hover,
+      &.active {
+        border-radius: 2rem;
+        color: var(--main-white);
+        background-color: var(--main-green);
+      }
+
+      @media screen and (max-width: 768px) {
+        width: 70%;
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+    }
+
+    .mobile_menu {
+      position: absolute;
+      top: 0;
+      right: 0rem;
+      height: 100%;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      display: none;
+
+      .burger,
+      .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: all 0.5s ease;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scale: 0;
+      }
+
+      .burger.active,
+      .close.active {
+        scale: 1;
+      }
+
+      @media screen and (max-width: 768px) {
+        display: flex;
       }
     }
   }
@@ -163,7 +236,8 @@
   hr {
     width: 100%;
     height: 0;
-    border: 0.5px solid lightgray;
+    border: 1px solid lightgray;
+    z-index: 99;
   }
 
   .menu {
@@ -175,5 +249,13 @@
     color: gray;
     font-family: "Montserrat", sans-serif;
     font-family: "Montserrat", sans-serif;
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 2rem;
   }
 }

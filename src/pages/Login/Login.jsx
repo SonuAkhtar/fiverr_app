@@ -7,12 +7,20 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [usernameError, setUsernameError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUsernameError(false);
+    setPasswordError(false);
+
+    if (username === "") return setUsernameError(true);
+    if (password === "") return setPasswordError(true);
 
     try {
       const res = await newRequest.post("/auth/login", { username, password });
@@ -24,28 +32,52 @@ function Login() {
   };
 
   return (
-    <div className="login">
-      <form onSubmit={handleSubmit}>
-        <h1>Sign in</h1>
-        <label htmlFor="">Username</label>
-        <input
-          name="username"
-          type="text"
-          placeholder="Enter your Username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
+    <section className="login">
+      <main>
+        <div className="left">
+          <form onSubmit={handleSubmit}>
+            <h1>Welcome Back</h1>
+            <h3>Login to your account & let's get started</h3>
+            <span className={`input_error ${usernameError && "show"}`}>
+              Please enter your username
+            </span>
+            <input
+              name="username"
+              type="text"
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
 
-        <label htmlFor="">Password</label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Enter your Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-        <span>{error && error}</span>
-      </form>
-    </div>
+            <span className={`input_error ${passwordError && "show"}`}>
+              Please enter your password
+            </span>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <span className="rememer">
+              <input type="checkbox" />
+              Remember me
+            </span>
+            <button
+              className={`${username && password ? "active" : ""}`}
+              type="submit"
+            >
+              Login
+            </button>
+            <span className="error">{error && error}</span>
+
+            <span className="forgot">Forgot Password?</span>
+          </form>
+        </div>
+        <div className="right">
+          <img src="/images/login-image.jpg" alt="login-image" />
+        </div>
+      </main>
+    </section>
   );
 }
 

@@ -7,8 +7,11 @@ const Navbar = () => {
   const [active, setActive] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [moveDots, setMoveDots] = useState(false);
+  const [menuClick, setMenuClick] = useState(false);
+
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   useEffect(() => {
     window.addEventListener("scroll", isActive);
@@ -26,8 +29,6 @@ const Navbar = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
   };
 
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
   const handleLogout = async () => {
     try {
       await newRequest.post("auth/logout");
@@ -38,22 +39,37 @@ const Navbar = () => {
     }
   };
 
+  const handleNavClick = (path) => {
+    setMenuClick(false);
+    navigate(path);
+  };
+
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <main>
         <div className="logo">
-          <Link to="/" className="link">
+          <span onClick={() => handleNavClick("/")} className="link">
             Crea
             <span className={`dot dot1 ${moveDots ? "loaded" : ""}`}></span>
             <span className="t">T</span>
             <span className={`dot dot2 ${moveDots ? "loaded" : ""}`}></span>ors
-          </Link>
+          </span>
         </div>
-        <div className="links">
-          <span>Business</span>
-          <span>Explore</span>
-          <span>English</span>
-          {!currentUser?.isSeller && <span>Become a Seller</span>}
+        <div className={`links ${menuClick && "show"}`}>
+          <span
+            onClick={() => handleNavClick("/")}
+            className={`link ${pathname === "/" && "active"}`}
+          >
+            Business
+          </span>
+          <span onClick={() => handleNavClick("/")} className="link">
+            Categories
+          </span>
+          {!currentUser?.isSeller && (
+            <span onClick={() => handleNavClick("/")} className="link">
+              Become a Creator
+            </span>
+          )}
           {currentUser ? (
             <div className="user" onClick={() => setMenuOpen(!menuOpen)}>
               <img
@@ -85,43 +101,59 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <Link to="/login" className="link">
+              <span
+                onClick={() => handleNavClick("/login")}
+                className={`link ${pathname === "/login" && "active"}`}
+              >
                 Sign in
-              </Link>
-              <Link to="/register" className="link">
-                <button>Join</button>
-              </Link>
+              </span>
+              <button
+                onClick={() => handleNavClick("/register")}
+                className={`${pathname === "/register" && "active"}`}
+              >
+                Register
+              </button>
             </>
           )}
+        </div>
+
+        <div className="mobile_menu" onClick={() => setMenuClick(!menuClick)}>
+          <span className={`burger ${menuClick ? "" : "active"}`}>
+            <i className="fa-solid fa-bars"></i>
+          </span>
+          <div className={`close ${menuClick ? "active" : ""}`}>
+            <i className="fa-solid fa-xmark"></i>
+          </div>
         </div>
       </main>
       {(active || pathname !== "/") && (
         <>
-          <hr />
-          <div className="menu">
+          {pathname !== "/login" && pathname !== "/register" && <hr />}
+          <div
+            className={`menu ${
+              pathname === "/login" || pathname === "/register" ? "hide" : ""
+            }`}
+          >
             <Link className="link" to="/">
-              Graphics & Design
+              Mobile App
             </Link>
             <Link className="link" to="/">
-              Video & Animation
+              Website Development
             </Link>
             <Link className="link" to="/">
-              AI Services
+              Graphic Design
+            </Link>
+            <Link className="link" to="/">
+              Video
+            </Link>
+            <Link className="link" to="/">
+              Animation
+            </Link>
+            <Link className="link" to="/">
+              AI Work
             </Link>
             <Link className="link" to="/">
               Digital Marketing
-            </Link>
-            <Link className="link" to="/">
-              Music & Audio
-            </Link>
-            <Link className="link" to="/">
-              Programming & Tech
-            </Link>
-            <Link className="link" to="/">
-              Business
-            </Link>
-            <Link className="link" to="/">
-              Lifestyle
             </Link>
           </div>
           <hr />

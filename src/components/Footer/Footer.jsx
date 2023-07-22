@@ -1,19 +1,18 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./footer.scss";
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
   return (
     <div className="footer">
       <main>
-        <div className="top">
-          <div className="item">
-            <h2>Categories</h2>
-            <span>Digital Marketing</span>
-            <span>Video & Animation</span>
-            <span>Business</span>
-            <span>LifeStyle</span>
-            <span>Photography</span>
-          </div>
+        <div
+          className={`top ${
+            pathname === "/login" || pathname === "/register" ? "hide" : ""
+          }`}
+        >
           <div className="item">
             <h2>Categories</h2>
             <span>Digital Marketing</span>
@@ -60,18 +59,6 @@ const Footer = () => {
               <img src="/images/linkedin.png" alt="linkedin" />
               <img src="/images/pinterest.png" alt="pinterest" />
               <img src="/images/instagram.png" alt="instagram" />
-            </div>
-            <div className="link">
-              <img src="/images/language.png" alt="language" />
-              <span>English</span>
-            </div>
-            <div className="link">
-              <img src="/images/coin.png" alt="coin" />
-              <span>USD</span>
-            </div>
-
-            <div className="link">
-              <img src="/images/accessibility.png" alt="accessibility" />
             </div>
           </div>
         </div>
