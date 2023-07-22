@@ -63,8 +63,8 @@
             box-shadow: 0 1px 10px var(--main-gray-light);
           }
 
-          @media screen and (max-width: 768px) {
-            max-width: 70%;
+          @media screen and (max-width: 960px) {
+            max-width: 80%;
           }
         }
 
@@ -82,6 +82,10 @@
           input {
             width: max-content;
             cursor: pointer;
+          }
+
+          @media screen and (max-width: 960px) {
+            max-width: calc(80% + 2rem);
           }
         }
 
@@ -108,8 +112,8 @@
             cursor: pointer;
           }
 
-          @media screen and (max-width: 768px) {
-            max-width: calc(70% + 2rem);
+          @media screen and (max-width: 960px) {
+            max-width: calc(80% + 2rem);
           }
         }
 
