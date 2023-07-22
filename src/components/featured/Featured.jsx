@@ -11,11 +11,11 @@ const Featured = () => {
   };
 
   return (
-    <div className="featured">
-      <div className="container">
+    <section className="featured">
+      <main>
         <div className="left">
           <h1>
-            Find the perfect <i>freelance</i> services for your business.
+            Get the best <span>freelancers</span> for your business.
           </h1>
           <div className="search">
             <div className="searchInput">
@@ -39,8 +39,8 @@ const Featured = () => {
         <div className="right">
           <img src="/images/man.png" alt="man-img" />
         </div>
-      </div>
-    </div>
+      </main>
+    </section>
   );
 };
 

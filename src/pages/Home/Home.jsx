@@ -9,16 +9,16 @@ import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
 const Home = () => {
   return (
-    <div className="home">
+    <section className="home">
       <Featured />
-      <TrustedBy />
+
       <Slide slidesToShow={5} arrowsScroll={5}>
         {cards.map((card) => (
           <CatCard key={card.id} item={card} />
         ))}
       </Slide>
       <div className="features">
-        <div className="container">
+        <main>
           <div className="item">
             <h1>A whole world of freelance talent at your fingertips.</h1>
             <div className="title">
@@ -66,10 +66,11 @@ const Home = () => {
           <div className="item">
             <video src="/images/video.mp4" controls></video>
           </div>
-        </div>
+        </main>
       </div>
+      <TrustedBy />
       <div className="features dark">
-        <div className="container">
+        <main>
           <div className="item">
             <h1>fiverr business</h1>
             <h1>A business solution designed for teams</h1>
@@ -97,14 +98,14 @@ const Home = () => {
               alt="image"
             />
           </div>
-        </div>
+        </main>
       </div>
       <Slide slidesToShow={4} arrowsScroll={4}>
         {projects.map((card) => (
           <ProjectCard key={card.id} item={card} />
         ))}
       </Slide>
-    </div>
+    </section>
   );
 };
 

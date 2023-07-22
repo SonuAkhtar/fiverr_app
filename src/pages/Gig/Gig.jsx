@@ -34,13 +34,13 @@ const Gig = () => {
   });
 
   return (
-    <div className="gig">
+    <section className="gig">
       {isLoading ? (
         "Loading"
       ) : error ? (
         "Something went wrong"
       ) : (
-        <div className="container">
+        <main>
           <div className="left">
             <div className="breadcrumbs">{`FIVERR > GRAPHICS > DESIGN`}</div>
             <h1>{data.title}</h1>
@@ -168,9 +168,9 @@ const Gig = () => {
               <button>Continue</button>
             </Link>
           </div>
-        </div>
+        </main>
       )}
-    </div>
+    </section>
   );
 };
 

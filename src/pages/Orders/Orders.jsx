@@ -36,13 +36,13 @@ const Orders = () => {
   };
 
   return (
-    <div className="orders">
+    <section className="orders">
       {isLoading ? (
         "Loading"
       ) : error ? (
         "Something went wrong"
       ) : (
-        <div className="container">
+        <main>
           <div className="title">
             <h1>Orders</h1>
           </div>
@@ -76,9 +76,9 @@ const Orders = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </main>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -5,8 +5,7 @@
   background-color: #013914;
   color: #fff;
 
-  .container {
-    width: 1400px;
+  main {
     display: flex;
     align-items: center;
 
@@ -16,10 +15,12 @@
       gap: 2rem;
 
       h1 {
-        font-size: 3rem;
+        font-size: 2rem;
+        font-weight: 300;
 
-        i {
-          font-weight: 400;
+        span {
+          font-size: 3rem;
+          font-weight: 500;
         }
       }
 

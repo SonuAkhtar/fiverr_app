@@ -37,8 +37,8 @@ const Message = () => {
   };
 
   return (
-    <div className="message">
-      <div className="container">
+    <section className="message">
+      <main>
         <span className="breadcrumbs">
           <Link to="/messages">MESSAGES</Link> - John Cena
         </span>
@@ -73,8 +73,8 @@ const Message = () => {
           ></textarea>
           <button type="submit">Send</button>
         </form>
-      </div>
-    </div>
+      </main>
+    </section>
   );
 };
 

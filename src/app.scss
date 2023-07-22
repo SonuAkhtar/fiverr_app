@@ -1,6 +1,21 @@
 * {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+
   .link {
     text-decoration: none;
     color: inherit;
   }
+}
+
+//root style variables
+:root {
+  --max-width: 1400px;
+}
+
+//globale styles
+main {
+  width: 100%;
+  max-width: var(--max-width);
 }

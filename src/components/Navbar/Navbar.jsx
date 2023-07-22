@@ -40,7 +40,7 @@ const Navbar = () => {
 
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
-      <div className="container">
+      <main>
         <div className="logo">
           <Link to="/" className="link">
             Crea
@@ -94,7 +94,7 @@ const Navbar = () => {
             </>
           )}
         </div>
-      </div>
+      </main>
       {(active || pathname !== "/") && (
         <>
           <hr />

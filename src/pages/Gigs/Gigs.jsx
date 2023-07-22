@@ -39,8 +39,8 @@ const Gigs = () => {
   };
 
   return (
-    <div className="gigs">
-      <div className="container">
+    <section className="gigs">
+      <main>
         <span className="breadcrumbs">{`FIVERR > GRAPHICS > DESIGN`}</span>
         <h1>AI Artists</h1>
         <p>
@@ -81,8 +81,8 @@ const Gigs = () => {
             ? "Something went wrong"
             : data.map((gig) => <GigCard key={gig._id} item={gig} />)}
         </div>
-      </div>
-    </div>
+      </main>
+    </section>
   );
 };
 

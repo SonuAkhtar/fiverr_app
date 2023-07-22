@@ -32,13 +32,13 @@ const MyGigs = () => {
   };
 
   return (
-    <div className="myGigs">
+    <section className="myGigs">
       {isLoading ? (
         "Loading"
       ) : error ? (
         "Something went wrong"
       ) : (
-        <div className="container">
+        <main>
           <div className="title">
             <h1>Gigs</h1>
             <Link to="/add">
@@ -76,9 +76,9 @@ const MyGigs = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </main>
       )}
-    </div>
+    </section>
   );
 };
 

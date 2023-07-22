@@ -1,10 +1,9 @@
-.slide {
+.slides {
   display: flex;
   justify-content: center;
   padding: 6rem 0;
-  .container {
-    width: 1400px;
 
+  main {
     .carousel-prev,
     .carousel-next {
       position: absolute;

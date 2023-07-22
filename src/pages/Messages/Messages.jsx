@@ -31,13 +31,13 @@ const Messages = () => {
   };
 
   return (
-    <div className="messages">
+    <section className="messages">
       {isLoading ? (
         "Loading"
       ) : error ? (
         "Something went wrong"
       ) : (
-        <div className="container">
+        <main>
           <div className="title">
             <h1>Messages</h1>
           </div>
@@ -80,9 +80,9 @@ const Messages = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </main>
       )}
-    </div>
+    </section>
   );
 };
 

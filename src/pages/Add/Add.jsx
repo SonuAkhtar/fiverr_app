@@ -70,8 +70,8 @@ const Add = () => {
   };
 
   return (
-    <div className="add">
-      <div className="container">
+    <section className="add">
+      <main>
         <h1>Add new Gig</h1>
         <div className="sections">
           <div className="left">
@@ -192,8 +192,8 @@ const Add = () => {
             />
           </div>
         </div>
-      </div>
-    </div>
+      </main>
+    </section>
   );
 };
 
