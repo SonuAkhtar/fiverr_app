@@ -1,9 +1,9 @@
 .footer {
   display: flex;
   justify-content: center;
-  color: #999;
+  color: var(--main-white);
   padding: 2rem 0;
-  background-color: var(--main-off-white);
+  background-color: var(--main-black-light);
 
   img {
     width: 1.5rem;
@@ -25,11 +25,12 @@
         gap: 1.25rem;
 
         h2 {
-          color: #555;
+          color: #fff;
         }
 
         span {
           font-weight: 300;
+          cursor: pointer;
         }
       }
     }

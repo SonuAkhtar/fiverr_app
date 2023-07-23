@@ -30,9 +30,15 @@ const Hero = () => {
           </div>
           <div className="popular">
             <span>Frequent Searched:</span>
-            <button>UI/UX Design</button>
-            <button>Web Development</button>
-            <button>AI Services</button>
+            <button onClick={() => navigate("/gigs?search=uiux")}>
+              UI/UX Design
+            </button>
+            <button onClick={() => navigate("/gigs?search=web")}>
+              Web Development
+            </button>
+            <button onClick={() => navigate("/gigs?search=ai")}>
+              AI Services
+            </button>
           </div>
         </div>
         <div className="right">

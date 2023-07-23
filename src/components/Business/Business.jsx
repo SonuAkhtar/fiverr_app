@@ -27,7 +27,7 @@ const Business = () => {
               <i class="fa-solid fa-arrow-trend-up"></i>
               Expand your business and get tremendous growth.
             </div>
-            <button>Explore Fiverr Business</button>
+            <button>Explore Business</button>
           </div>
         </div>
 

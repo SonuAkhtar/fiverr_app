@@ -1,5 +1,5 @@
 import React from "react";
-import { cards, projects } from "../../data";
+import { category, projects } from "../../data";
 
 //components
 import Hero from "../../components/Hero/Hero";
@@ -7,7 +7,7 @@ import Slide from "../../components/Slide/Slide";
 import Features from "../../components/Features/Features";
 import TrustedBy from "../../components/TrustedBy/TrustedBy";
 import Business from "../../components/Business/Business";
-import CatCard from "../../components/CatCard/CatCard";
+import CategoryCard from "../../components/CategoryCard/CategoryCard.jsx";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
 //style
@@ -18,22 +18,23 @@ const Homepage = () => {
     <section className="homepage">
       <Hero />
 
-      <Slide slidesToShow={4} arrowsScroll={5}>
-        {cards.map((card) => (
-          <CatCard key={card.id} item={card} />
+      <Slide slidesToShow={4} arrowsScroll={4}>
+        {category.map((card) => (
+          <CategoryCard key={card.id} item={card} />
         ))}
       </Slide>
 
-      <Features />
-
       <TrustedBy />
-      <Business />
 
       <Slide slidesToShow={4} arrowsScroll={4}>
         {projects.map((card) => (
           <ProjectCard key={card.id} item={card} />
         ))}
       </Slide>
+
+      <Business />
+
+      <Features />
     </section>
   );
 };

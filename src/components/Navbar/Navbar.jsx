@@ -58,15 +58,21 @@ const Navbar = () => {
         <div className={`links ${menuClick && "show"}`}>
           <span
             onClick={() => handleNavClick("/")}
-            className={`link ${pathname === "/" && "active"}`}
+            className={`link ${pathname === "/business" && "active"}`}
           >
             Business
           </span>
-          <span onClick={() => handleNavClick("/")} className="link">
+          <span
+            onClick={() => handleNavClick("/")}
+            className={`link ${pathname === "/categories" && "active"}`}
+          >
             Categories
           </span>
           {!currentUser?.isSeller && (
-            <span onClick={() => handleNavClick("/")} className="link">
+            <span
+              onClick={() => handleNavClick("/")}
+              className={`link ${pathname === "/creator" && "active"}`}
+            >
               Become a Creator
             </span>
           )}

@@ -2,14 +2,23 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: #000;
-  background-color: #fff;
+  background-color: var(--main-black-light);
+  color: #fff;
   transition: 0.5s ease all;
   position: sticky;
   top: 0;
   z-index: 999;
   transition: all 0.5s ease;
   overflow: hidden;
+
+  &.active {
+    background-color: var(--main-white);
+    color: var(--main-black-light);
+
+    button {
+      color: var(--main-black-light);
+    }
+  }
 
   main {
     position: relative;
@@ -71,7 +80,7 @@
       gap: 1.5rem;
       font-weight: 300;
       font-family: "Montserrat", sans-serif;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.3s ease-in-out;
       cursor: pointer;
 
       .link {
@@ -184,11 +193,12 @@
     button {
       border: 1px solid var(--main-green);
       font-weight: 500;
+      color: var(--main-white);
 
       &:hover,
       &.active {
         border-radius: 2rem;
-        color: var(--main-white);
+
         background-color: var(--main-green);
       }
 
