@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./featured.scss";
+import "./hero.scss";
 
-const Featured = () => {
+const Hero = () => {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
 
@@ -11,7 +11,7 @@ const Featured = () => {
   };
 
   return (
-    <section className="featured">
+    <section className="hero">
       <main>
         <div className="left">
           <h1>
@@ -19,7 +19,7 @@ const Featured = () => {
           </h1>
           <div className="search">
             <div className="searchInput">
-              <img src="/images/search.png" alt="search-img" />
+              <i class="fa-solid fa-magnifying-glass"></i>
               <input
                 type="text"
                 placeholder='Try "Mobile App Development"'
@@ -43,4 +43,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default Hero;

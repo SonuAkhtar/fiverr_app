@@ -1,4 +1,4 @@
-.featured {
+.hero {
   height: 80vh;
   display: flex;
   justify-content: center;
@@ -41,7 +41,8 @@
           gap: 0.75rem;
           width: 100%;
 
-          img {
+          i {
+            color: var(--main-gray-dark);
             width: 1.25rem;
             height: 1.25rem;
             margin: 0.75rem;

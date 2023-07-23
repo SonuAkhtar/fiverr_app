@@ -4,14 +4,34 @@ import "./trustedBy.scss";
 const TrustedBy = () => {
   return (
     <div className="trustedBy">
-      <div className="container">
-        <span>Trusted By:</span>
-        <img src="/images/facebook-logo.png" alt="facebook" />
-        <img src="/images/google.png" alt="google" />
-        <img src="/images/netflix.png" alt="netflix" />
-        <img src="/images/pg.png" alt="pandg" />
-        <img src="/images/paypal.png" alt="paypal" />
-      </div>
+      <main>
+        <div className="left">
+          <span>Trusted By:</span>
+        </div>
+        <div className="right">
+          <div className="item">
+            <i class="fa-brands fa-amazon"></i>
+            <span className="text">mazon</span>
+          </div>
+          <div className="item">
+            <i class="fa-brands fa-behance"></i>
+            <span className="text">hance</span>
+          </div>
+          <div className="item">
+            <i class="fa-brands fa-google"></i>
+
+            <span className="text">oogle</span>
+          </div>
+          <div className="item">
+            <i class="fa-brands fa-shopify"></i>
+            <span className="text">hopify</span>
+          </div>
+          <div className="item">
+            <i class="fa-brands fa-paypal"></i>
+            <span className="text">aypal</span>
+          </div>
+        </div>
+      </main>
     </div>
   );
 };

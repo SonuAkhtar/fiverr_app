@@ -5,7 +5,7 @@ import "./app.scss";
 
 //Pages
 import Add from "./pages/Add/Add";
-import Home from "./pages/Home/Home";
+import Homepage from "./pages/Homepage/Homepage";
 import Gig from "./pages/Gig/Gig";
 import Gigs from "./pages/Gigs/Gigs";
 import Login from "./pages/Login/Login";
@@ -42,7 +42,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <Homepage />,
         },
         {
           path: "/add",
